@@ -7,6 +7,8 @@ LABEL \
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /tftpboot
-COPY data/initrd.img-4.9.0-4-amd64 /tftpboot
-COPY data/vmlinuz-4.9.0-4-amd64 /tftpboot
+RUN mkdir -p /tftpboot/init
+COPY data/initrd.img-4.9.0-4-amd64 /tftpboot/init
+COPY data/vmlinuz-4.9.0-4-amd64 /tftpboot/init
+
+VOLUME /tftpboot/init
