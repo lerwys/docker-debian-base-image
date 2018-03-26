@@ -20,4 +20,4 @@ The vmlinuz and initrd files were created by:
 
 ### Build image with docker
 
-docker build -t lnlsdig/debian-base-image .
+    docker build -t lnlsdig/debian-base-image .
