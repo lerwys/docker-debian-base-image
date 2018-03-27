@@ -18,6 +18,10 @@ The vmlinuz and initrd files were created by:
         cp /tftpboot/boot/initrd.img-*-amd64 ~/tftpimages && \
         cp /tftpboot/boot/vmlinuz-*-amd64 ~/tftpimages
 
-### Build image with docker
+### Build image with docker < 17.05
+
+    docker build -f Dockerfile.singlestage -t lnlsdig/debian-base-image .
+
+### Build image with docker >= 17.05
 
     docker build -t lnlsdig/debian-base-image .
