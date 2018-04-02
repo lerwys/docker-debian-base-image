@@ -18,7 +18,7 @@ RUN echo "nameserver 10.0.0.71" > /etc/resolv.conf && \
 RUN sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf && \
     echo "BOOT=nfs" >> etc/initramfs-tools/initramfs.conf && \
     mkdir -p /tftpboot/init && \
-    update-initramfs -c -k `uname -r`
+    update-initramfs -c -u -k 4.9.0-6-amd64
 
 FROM debian:9.4
 
