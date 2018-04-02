@@ -1,4 +1,4 @@
-FROM debian:stretch as builder
+FROM debian:9.4 as builder
 
 LABEL \
       com.github.lnlsdig.docker.dockerfile="Dockerfile" \
@@ -20,7 +20,7 @@ RUN sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf 
     mkdir -p /tftpboot/init && \
     update-initramfs -c -k `uname -r`
 
-FROM debian:stretch
+FROM debian:9.4
 
 RUN mkdir -p /tftpboot/init
 
