@@ -1,9 +1,9 @@
 FROM debian:9.4 as builder
 
 LABEL \
-      com.github.lnlsdig.docker.dockerfile="Dockerfile" \
-      com.github.lnlsdig.vcs-type="Git" \
-      com.github.lnlsdig.vcs-url="https://github.com/lnls-dig/docker-debian-base-image.git"
+      com.github.lnlssirius.docker.dockerfile="Dockerfile" \
+      com.github.lnlssirius.vcs-type="Git" \
+      com.github.lnlssirius.vcs-url="https://github.com/lnls-sirius/docker-debian-base-image.git"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
