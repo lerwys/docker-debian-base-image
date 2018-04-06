@@ -7,7 +7,7 @@ LABEL \
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN echo "nameserver 10.0.0.71" > /etc/resolv.conf && \
+RUN echo "nameserver 10.0.0.71" >> /etc/resolv.conf && \
     apt-get -y update && \
     apt-get install -y \
         initramfs-tools \
