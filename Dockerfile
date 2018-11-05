@@ -11,14 +11,14 @@ RUN echo "nameserver 10.0.0.71" >> /etc/resolv.conf && \
     apt-get -y update && \
     apt-get install -y \
         initramfs-tools \
-        linux-image-amd64 \
-        linux-headers-amd64 && \
+        linux-image-4.9.0-7-amd64 \
+        linux-headers-4.9.0-7-amd64 && \
     rm -rf /var/lib/apt/lists/*
 
 RUN sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf && \
     echo "BOOT=nfs" >> etc/initramfs-tools/initramfs.conf && \
     mkdir -p /tftpboot/init && \
-    update-initramfs -c -u -k 4.9.0-6-amd64
+    update-initramfs -c -u -k 4.9.0-7-amd64
 
 FROM debian:9.4
 
