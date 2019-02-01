@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:9.6
 
 ENV KERNEL_VER 4.9.0-8
 
