@@ -1,5 +1,7 @@
 FROM debian:stretch
 
+ENV KERNEL_VER 4.9.0-8
+
 LABEL \
       com.github.lnlsdig.docker.dockerfile="Dockerfile" \
       com.github.lnlsdig.vcs-type="Git" \
@@ -11,19 +13,19 @@ RUN echo "nameserver 10.0.0.71" >> /etc/resolv.conf && \
     apt-get -y update && \
     apt-get install -y \
         initramfs-tools \
-        linux-image-amd64 \
-        linux-headers-amd64 && \
+        linux-image-${KERNEL_VER}-amd64 \
+        linux-headers-${KERNEL_VER}-amd64 && \
     sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf && \
     echo "BOOT=nfs" >> etc/initramfs-tools/initramfs.conf && \
     mkdir -p /tftpboot/init && \
-    update-initramfs -c -k `uname -r` && \
+    update-initramfs -c -u -k ${KERNEL_VER}-amd64 && \
     mkdir -p /tftpboot/init && \
     cp /boot/initrd.img-*-amd64 /tftpboot/init && \
     cp /boot/vmlinuz-*-amd64 /tftpboot/init && \
     apt-get remove -y --purge \
         initramfs-tools \
-        linux-image-amd64 \
-        linux-headers-amd64 && \
+        linux-image-${KERNEL_VER}-amd64 \
+        linux-headers-${KERNEL_VER}-amd64 && \
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /tftpboot/init
