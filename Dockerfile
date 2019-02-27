@@ -1,4 +1,4 @@
-FROM debian:9.6 as builder
+FROM debian:9.7 as builder
 
 ENV KERNEL_VER 4.9.0-8
 
@@ -22,7 +22,7 @@ RUN sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf 
     mkdir -p /tftpboot/init && \
     update-initramfs -c -u -k ${KERNEL_VER}-amd64
 
-FROM debian:9.6
+FROM debian:9.7
 
 RUN mkdir -p /tftpboot/init
 
