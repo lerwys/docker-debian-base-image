@@ -1,4 +1,4 @@
-FROM debian:9.6
+FROM debian:9.8
 
 ENV KERNEL_VER 4.9.0-8
 
