@@ -1,6 +1,6 @@
-FROM debian:9.8
+FROM debian:9.9
 
-ENV KERNEL_VER 4.9.0-8
+ENV KERNEL_VER 4.9.0-11
 
 LABEL \
       com.github.lnlsdig.docker.dockerfile="Dockerfile" \

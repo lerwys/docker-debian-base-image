@@ -1,6 +1,6 @@
-FROM debian:9.8 as builder
+FROM debian:9.9 as builder
 
-ENV KERNEL_VER 4.9.0-8
+ENV KERNEL_VER 4.9.0-11
 
 LABEL \
       com.github.lnlssirius.docker.dockerfile="Dockerfile" \
@@ -22,7 +22,7 @@ RUN sed 's/MODULES=.*$/MODULES=netboot/' -i /etc/initramfs-tools/initramfs.conf 
     mkdir -p /tftpboot/init && \
     update-initramfs -c -u -k ${KERNEL_VER}-amd64
 
-FROM debian:9.8
+FROM debian:9.9
 
 RUN mkdir -p /tftpboot/init
 
